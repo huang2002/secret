@@ -25,6 +25,7 @@ const paragraph = h('p', {
         left: '0',
         top: '40%',
         width: '100%',
+        padding: '0 1em',
         color: MAIN_COLOR,
         fontFamily: 'sans-serif',
         fontSize: '25px',
@@ -165,11 +166,12 @@ if (navigator.maxTouchPoints) {
         startPath(touch.clientX, touch.clientY);
     }, { passive: false });
     mask.addEventListener('touchmove', event => {
+        event.preventDefault();
         if (isScraping) {
             const touch = event.changedTouches[0];
             continuePath(touch.clientX, touch.clientY);
         }
-    });
+    }, { passive: false });
     mask.addEventListener('touchend', event => {
         const touch = event.changedTouches[0];
         endPath(touch.clientX, touch.clientY);
@@ -180,10 +182,11 @@ if (navigator.maxTouchPoints) {
         startPath(event.clientX, event.clientY);
     }, { passive: false });
     mask.addEventListener('mousemove', event => {
+        event.preventDefault();
         if (isScraping) {
             continuePath(event.clientX, event.clientY);
         }
-    });
+    }, { passive: false });
     mask.addEventListener('mouseup', event => {
         endPath(event.clientX, event.clientY);
     });
