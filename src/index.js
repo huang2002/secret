@@ -160,34 +160,34 @@ const endPath = (x, y) => {
 };
 
 if (navigator.maxTouchPoints) {
-    mask.addEventListener('touchstart', event => {
+    window.addEventListener('touchstart', event => {
         event.preventDefault();
         const touch = event.changedTouches[0];
         startPath(touch.clientX, touch.clientY);
     }, { passive: false });
-    mask.addEventListener('touchmove', event => {
+    window.addEventListener('touchmove', event => {
         event.preventDefault();
         if (isScraping) {
             const touch = event.changedTouches[0];
             continuePath(touch.clientX, touch.clientY);
         }
     }, { passive: false });
-    mask.addEventListener('touchend', event => {
+    window.addEventListener('touchend', event => {
         const touch = event.changedTouches[0];
         endPath(touch.clientX, touch.clientY);
     });
 } else {
-    mask.addEventListener('mousedown', event => {
+    window.addEventListener('mousedown', event => {
         event.preventDefault();
         startPath(event.clientX, event.clientY);
     }, { passive: false });
-    mask.addEventListener('mousemove', event => {
+    window.addEventListener('mousemove', event => {
         event.preventDefault();
         if (isScraping) {
             continuePath(event.clientX, event.clientY);
         }
     }, { passive: false });
-    mask.addEventListener('mouseup', event => {
+    window.addEventListener('mouseup', event => {
         endPath(event.clientX, event.clientY);
     });
 }
