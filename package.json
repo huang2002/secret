@@ -1,0 +1,26 @@
+{
+  "name": "secret",
+  "version": "0.1.0",
+  "description": "A simple app for secret displaying.",
+  "author": "3h",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "test": "node dev-server"
+  },
+  "repository": "huang2002/secret",
+  "keywords": [],
+  "devDependencies": {
+    "@babel/core": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "herver": "^0.6.0",
+    "rollup": "^2.26.0",
+    "@rollup/plugin-babel": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "terser": "^5.2.0"
+  },
+  "dependencies": {
+    "super-x": "^1.0.0"
+  }
+}
